@@ -14,13 +14,18 @@ public class TwoDArrays{
             {1,2,3},
             {4,5,6},
             {7,8,9}};
+
         int matrix2[][] = {
                 {10,20,30,40},
                 {15,25,35,45},
                 {27,29,37,48},
                 {32,33,39,50}};
 
-                stairCaseSearch(matrix2,33);
+                // stairCaseSearch(matrix2,33);
+                int bitMask = 1<<3;
+                int num = 15;
+
+            System.out.println("binary!" + ('b' ^ ' '));
     }
 
     public static boolean stairCaseSearch(int[][] a, int key){
