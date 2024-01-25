@@ -1,3 +1,4 @@
+import java.util.*;
 public class BackTracking{
 
     public static void main(String args[]){
@@ -7,12 +8,36 @@ public class BackTracking{
         // printArray(myArray); 
         // mergeSort(myArray,0,myArray.length-1);
         // printArray(myArray);
-        int maze[][] = {    { 1, 0, 0, 0 },
-                            { 1, 1, 0, 1 },
-                            { 0, 1, 0, 0 },
-                            { 1, 1, 1, 1 } };
-        System.out.print("Total possible ways = " + ratInMaze(maze,0,0,3));
+        // int maze[][] = {    { 1, 0, 0, 0 },
+        //                     { 1, 1, 0, 1 },
+        //                     { 0, 1, 0, 0 },
+        //                     { 1, 1, 1, 1 } };
+        // System.out.print("Total possible ways = " + ratInMaze(maze,0,0,3));
+        List<String> lst = new ArrayList<>();
+        lst = paranthsesCombination("", 1,1, lst);
+        for (var key : lst) {
+            System.out.print(key + " ");
+        }
+    
     }
+    public static List<String> paranthsesCombination(String str, int O, int C,List<String> lstStr){  
+        if(O+C == 0){
+            lstStr.add(str);
+            return lstStr;
+        }
+
+        if(O==C){
+            paranthsesCombination(str+"(", O-1, C,lstStr);
+        }else{
+            if(O>0)
+            paranthsesCombination(str+"(", O-1, C,lstStr);
+            if(C>0)
+            paranthsesCombination(str+")", O, C-1,lstStr); 
+        }
+
+        return lstStr;
+    }
+
 
     public static int ratInMaze(int[][] a, int row, int col, int n){
         // System.out.println("Row = " + row + "Col = " + col);
